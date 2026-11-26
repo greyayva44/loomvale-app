@@ -1,0 +1,1051 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What is design costing you? · Loomvale</title>
+<meta name="description" content="In &lt;60 seconds you will see how many hours and euros an AI design agent would save your team.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Loomvale">
+<meta property="og:title" content="What is design costing you? · Loomvale">
+<meta property="og:description" content="In &lt;60 seconds you will see how many hours and euros an AI design agent would save your team.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="What is design costing you? · Loomvale">
+<meta name="twitter:description" content="In &lt;60 seconds you will see how many hours and euros an AI design agent would save your team.">
+<meta name="theme-color" content="#ffffff">
+<meta name="format-detection" content="telephone=no">
+<!-- Favicon: Kl1k at 32px, inlined so the page stays one file -->
+<link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAACqUlEQVR42u1WS0orQRStT0pbRBssdGKkEwcRPxvQgKI9MY6DbkBwBwHBFWSie1FwbBDcQCA0gUiwaQ0KoXGg1OeWg4JHntpttzp58M7w1ufcuufeQyH0Hz8AxjjLNkJI2mrK7cVi8UsOjPHCwkLKtjSCarWahWBjY+M7BLOzs+vr61nqU61WOee5q7+2thaGoeu66Ts55/f396urqxkF+6uyLy8v5+fnnHNKKaWUjcBGOOcXFxevr6/z8/NJBIm0jLFut1ssFuM4brVaUsparTY2NoYQEkJcXl4yxjY3N13Xvbu7q1QqUsp8VSKEHB8fa62NMQAAAGYEfyJKqUajkd6piZiZmRkOhyYVj4+P6TrRxAVKT05OfN9PV298fBwhdHV1ZYzJJ7LneXEcmwwYDocpI0mSCOr1+uTkZJZspqam9vf38xEQQnZ2djK2NsZ4a2srSedC0plKpWIJjDHvmLTWNm6lwhivrKwkZVNIymt6ehoh9Pz8fHt7WyqVHMfBGDPGtNaNRqPX6/X7/TAMb25uFhcXJyYm8jWonTKtdRAEjuMUCgXOue/7UkohhOu6GGPLFwQBAHS7XcZYDg2MMVEUYYxLpVK5XAaAOI7n5uYwxoSQ3d1dQogtY7lcRgiFYZivTSmlzWZTKQUA7Xa7VqsdHBw8PT3ZvhwMBvV6fW9vr91uA4BSqtlsUkrzzYHv+0II6wpSSinlaO/biHULIcT29nY+N7Uj2ul03lnQRwBAp9Ox85zb7I6Ojt4l/hFCiMPDw2+aneM419fXKY8AgFarZT38m78Kz/OiKPqUAwCiKPI876c/l+Xl5SAIlFKjtyulgiBYWlrKre2nHK7rnp2dDQYDIYQQ4uHh4fT01I7b18ezTwal1Bak3+9rra0j/f5f7xdq8o/hDdDxB5tB8CdGAAAAAElFTkSuQmCC">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Science Gothic has no separate italic on Google Fonts. Its slant is a variable axis ("slnt"), so that is what we load. -->
+<!-- Loaded without blocking the page: if the conference Wi-Fi is slow, the calculator still appears at once in the system font. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Science+Gothic:slnt,wght@-10,300;-10,400&display=swap" media="print" onload="this.media='all'">
+<style>
+:root{
+  --ink:#020403;
+  --text2:#4a4a4a;
+  --muted:#595959;
+  --card-line:#dcdcdc;
+  --chip-line:#c9c9c9;
+  --rule:#e6e6e6;
+  --foot:#f9feff;
+  --foot-muted:rgba(249,254,255,.5);
+  --err:#b42318;
+  --font-body:"Geist",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --font-head:"Science Gothic","Geist",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{background:#fff;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;font-family:var(--font-body);font-weight:400;font-size:16px;line-height:1.5;color:var(--ink);overflow-wrap:break-word;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;-webkit-tap-highlight-color:transparent}
+img{max-width:100%}
+p{margin:0}
+a{color:inherit}
+[hidden]{display:none!important}
+:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+[tabindex="-1"]:focus{outline:none}
+.sr{position:absolute!important;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* ---------- Page shell: white-to-black gradient, footer on the black part ---------- */
+.page{display:flex;flex-direction:column;min-height:100vh;min-height:100dvh;
+  background:linear-gradient(180deg,
+    #ffffff 0%, #f5f5f5 40%,
+    #d4d4d4 calc(100% - 370px),
+    #6e6e6e calc(100% - 280px),
+    #000000 calc(100% - 200px), #000000 100%)}
+.main{flex:1 0 auto;width:100%;max-width:440px;margin:0 auto;padding:12px 16px 200px}
+
+/* ---------- Type ---------- */
+.h1,.h2,.card-title,.num{font-family:var(--font-head);font-weight:300;font-style:italic;font-style:oblique 10deg;font-variation-settings:"slnt" -10;font-synthesis:none;letter-spacing:-.4px}
+.h1{font-size:32px;line-height:1.12;margin:28px 0 12px}
+.h2{font-size:26px;line-height:1.15;margin:0 0 20px}
+.card-title{font-size:18px;line-height:1.25;margin:0}
+.lead{color:var(--text2);margin:0 0 28px}
+.label{font-weight:600;font-size:15px;margin:0 0 12px}
+.kicker{font-size:13px;font-weight:500;color:var(--muted);margin:0 0 6px}
+.note{font-size:13px;color:var(--muted);text-align:center;margin:16px 0 0}
+
+/* ---------- Shared pieces ---------- */
+.card{background:#fff;border:1px solid var(--card-line);border-radius:14px;padding:16px}
+.stack{display:grid;gap:12px}
+.back{display:inline-flex;align-items:center;min-height:44px;margin:0 -8px;padding:0 8px;font-weight:500;font-size:15px;color:var(--ink);text-decoration:none;border-radius:8px}
+.btn{-webkit-appearance:none;appearance:none;display:flex;align-items:center;justify-content:center;width:100%;min-height:56px;margin:24px 0 0;padding:12px 20px;border:0;border-radius:14px;background:var(--ink);color:#fff;font-family:var(--font-body);font-weight:600;font-size:16px;line-height:1.2;text-align:center;text-decoration:none;cursor:pointer}
+.btn[aria-disabled="true"]{opacity:.36}
+@media (hover:hover){.btn:not([aria-disabled="true"]):hover{background:#2b2d2c}}
+
+/* ---------- Start ---------- */
+.options{display:grid;gap:10px}
+.option{display:flex;align-items:flex-start;gap:14px;color:var(--ink);text-decoration:none}
+.option:active{border-color:var(--ink)}
+@media (hover:hover){.option:hover{border-color:var(--ink)}}
+.tag{flex:none;display:flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:6px;background:var(--ink);color:#fff;font-weight:600;font-size:14px;line-height:1}
+.option-title{display:block;font-weight:600;font-size:16px;line-height:1.35}
+.option-desc{display:block;margin-top:2px;font-size:14px;line-height:1.45;color:var(--text2)}
+
+/* ---------- Questions ---------- */
+.progress{height:4px;margin:8px 0 24px;border-radius:999px;background:#e2e2e2;overflow:hidden}
+.progress-fill{width:0;height:100%;border-radius:999px;background:var(--ink)}
+fieldset{min-width:0;margin:0;padding:0;border:0}
+legend{float:left;width:100%;margin:0 0 12px;padding:0;font-weight:600;font-size:15px;line-height:1.4}
+legend + *{clear:both}
+.opt{font-weight:400;color:var(--muted)}
+.help{font-size:13px;line-height:1.45;color:var(--muted);margin:-6px 0 12px}
+.help-below{margin:10px 0 0}
+.q.is-missing{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+
+.chips{display:flex;flex-wrap:wrap;gap:4px 8px}
+.chip{position:relative;display:inline-flex;align-items:center;min-height:44px;cursor:pointer}
+.chip input{position:absolute;top:50%;left:50%;width:1px;height:1px;margin:0;opacity:0;pointer-events:none}
+.chip span{display:inline-flex;align-items:center;min-height:40px;padding:0 14px;border:1.5px solid var(--chip-line);border-radius:999px;background:#fff;color:var(--ink);font-weight:500;font-size:14px;line-height:1.2;-webkit-user-select:none;user-select:none}
+.chip input:checked + span{background:var(--ink);border-color:var(--ink);color:#fff}
+.chip input:focus-visible + span{outline:2px solid var(--ink);outline-offset:2px}
+@media (hover:hover){.chip:hover input:not(:checked) + span{border-color:#8c8c8c}}
+
+.sv{display:flex;align-items:baseline;gap:6px;margin:0 0 2px}
+.sv-num{font-size:32px;line-height:1.1}
+.sv-unit{font-size:15px;font-weight:500;color:var(--muted)}
+.range{position:relative;height:44px}
+.range-track{position:absolute;top:19px;left:0;right:0;height:6px;border-radius:999px;background:#dcdcdc;overflow:hidden;pointer-events:none}
+.range-fill{width:calc(11px + (100% - 22px) * var(--p, 0));height:100%;background:var(--ink)}
+.range input{position:relative;display:block;width:100%;height:44px;margin:0;padding:0;border:0;background:transparent;-webkit-appearance:none;appearance:none;cursor:pointer}
+.range input:focus{outline:none}
+.range input::-webkit-slider-runnable-track{height:6px;border:0;background:transparent}
+.range input::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:22px;height:22px;margin-top:-8px;border:2px solid var(--ink);border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.18)}
+.range input::-moz-range-track{height:6px;border:0;background:transparent}
+.range input::-moz-range-thumb{box-sizing:border-box;width:22px;height:22px;border:2px solid var(--ink);border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.18)}
+.range input:focus-visible::-webkit-slider-thumb{box-shadow:0 0 0 3px #fff,0 0 0 5px var(--ink)}
+.range input:focus-visible::-moz-range-thumb{box-shadow:0 0 0 3px #fff,0 0 0 5px var(--ink)}
+.range-ends{display:flex;justify-content:space-between;margin-top:-4px;font-size:13px;color:var(--muted)}
+
+/* ---------- Results ---------- */
+.hero{padding:20px;border-radius:14px;background:linear-gradient(160deg,#4a4a4a 0%,#1c1c1c 45%,#020403 100%);color:#fff}
+.hero-label{margin:0 0 10px;font-family:var(--font-body);font-weight:500;font-size:14px;line-height:1.4;color:rgba(255,255,255,.8)}
+.hero-num{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 8px}
+.hero-big{font-size:36px;line-height:1.1}
+.hero-per{font-size:16px;color:rgba(255,255,255,.8)}
+.hero-sub{margin:8px 0 0;font-size:15px;line-height:1.45;color:rgba(255,255,255,.9)}
+.stats{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
+.stats .card{display:flex;flex-direction:column}
+.stat-label{flex:1 0 auto;margin:0 0 6px;font-size:13px;line-height:1.35;color:var(--muted)}
+.stat-num{font-size:30px;line-height:1.1}
+.stat-num.is-text{font-size:22px;line-height:1.2}
+.stat-sub{margin:6px 0 0;font-size:13px;line-height:1.35;color:var(--text2)}
+.row-card{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 12px;font-size:15px}
+.row-card .values{white-space:nowrap}
+.was{color:#767676;text-decoration:line-through}
+.now{font-weight:600}
+.score-row{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 12px}
+.score-label{font-weight:600;font-size:15px}
+.score-num{font-size:36px;line-height:1.1}
+.score-of{font-size:15px;color:var(--muted)}
+.bar{height:10px;margin:12px 0;border-radius:999px;background:var(--rule);overflow:hidden}
+.bar-fill{height:100%;border-radius:999px;background:var(--ink)}
+.score-text{font-size:14px;line-height:1.45;color:var(--text2)}
+.bullets{display:grid;gap:8px;margin:12px 0 0;padding:0;list-style:none}
+.bullets li{position:relative;padding-left:20px;font-size:15px;line-height:1.45;color:var(--text2)}
+.bullets li::before{content:"";position:absolute;top:.52em;left:2px;width:7px;height:7px;background:var(--ink)}
+.pkg{border:1.5px solid var(--ink)}
+.pkg-label{margin:0 0 8px;font-size:13px;font-weight:500;color:var(--muted)}
+.pkg-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.pkg-price{flex:none;font-weight:600;font-size:16px;white-space:nowrap}
+.pkg-desc{margin:6px 0 0;font-size:14px;line-height:1.45;color:var(--text2)}
+.pkg-pay{margin:14px 0 0;padding:12px 0 0;border-top:1px solid var(--rule);font-size:15px}
+.pkg-pay b{font-weight:600}
+.cta{display:flex;align-items:center;gap:12px;margin:24px 0 0;padding:12px;border-radius:16px;background:#000}
+.kl1k{display:block;flex:none;border-radius:10px;image-rendering:crisp-edges;image-rendering:pixelated}
+.btn-white{flex:1;min-width:0;display:flex;align-items:center;justify-content:center;min-height:56px;padding:8px 14px;border-radius:14px;background:#fff;color:var(--ink);font-weight:600;font-size:16px;line-height:1.2;text-align:center;text-decoration:none}
+.cta .btn-white:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.center{text-align:center}
+.email-link{display:inline-flex;align-items:center;min-height:44px;padding:0 8px;font-size:14px;color:var(--muted);text-decoration:underline;text-underline-offset:3px}
+.disclaimer{margin:36px 0 0;padding:0 0 16px;border-bottom:1px solid var(--rule);font-size:12px;line-height:1.5;color:var(--muted)}
+
+/* ---------- Contact ---------- */
+.pill{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:4px 12px;margin:0 0 24px;padding:12px 14px;border-radius:12px;background:#ececec;font-size:14px}
+.pill span{color:var(--muted)}
+.pill b{font-weight:600}
+.field{margin:0 0 16px}
+.field label{display:block;margin:0 0 6px;font-weight:600;font-size:15px}
+.input{-webkit-appearance:none;appearance:none;display:block;width:100%;min-height:52px;padding:12px 14px;border:1.5px solid var(--chip-line);border-radius:12px;background:#fff;color:var(--ink);font-family:var(--font-body);font-weight:400;font-size:16px;line-height:1.3}
+.input:focus{outline:none;border-color:var(--ink);box-shadow:0 0 0 1px var(--ink)}
+.input[aria-invalid="true"]{border-color:var(--err)}
+.input[aria-invalid="true"]:focus{box-shadow:0 0 0 1px var(--err)}
+.err{margin:6px 0 0;font-size:14px;line-height:1.4;color:var(--err)}
+.check{display:flex;align-items:center;gap:10px;min-height:44px;font-size:15px;cursor:pointer}
+.check input{flex:none;width:20px;height:20px;margin:0;accent-color:var(--ink)}
+.contact-form .btn{margin-top:12px}
+.legal{margin:12px 0 0;font-size:12px;line-height:1.5;color:var(--muted)}
+.legal a{display:inline-block;margin:-14px 0;padding:14px 0}
+.direct{margin:32px 0 0;font-size:15px;color:var(--text2)}
+.direct-title{margin:0;font-weight:600;color:var(--ink)}
+.direct-line{display:flex;flex-wrap:wrap;align-items:center;gap:0 .35em;min-height:44px}
+.direct a{display:inline-flex;align-items:center;min-height:44px;color:var(--ink);text-underline-offset:3px}
+.success a:not(.btn){display:inline-block;margin:-10px 0;padding:10px 0;color:var(--ink);text-underline-offset:3px}
+.success{padding-top:12px}
+.success .kl1k{margin:0 0 20px;border-radius:12px}
+.success .h2{margin-bottom:12px}
+.success p{margin:0 0 10px;color:var(--text2)}
+
+/* ---------- Footer ---------- */
+.site-footer{min-height:180px;padding:28px 16px 22px;color:var(--foot)}
+.footer-in{max-width:408px;margin:0 auto}
+.footer-logo{display:block;width:auto;height:15px;filter:invert(1)}
+.footer-tag{margin:10px 0 0;font-size:14px;color:var(--foot-muted)}
+.footer-rule{height:1px;margin:20px 0 14px;border:0;background:rgba(249,254,255,.15)}
+.footer-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 16px;font-size:12px;line-height:1.5;color:var(--foot-muted)}
+.footer-links{display:flex;gap:16px}
+.footer-links a{display:inline-block;margin:-13px -4px;padding:13px 4px;color:var(--foot-muted);text-decoration:none}
+.footer-links a:focus-visible{outline:2px solid var(--foot);outline-offset:-8px}
+@media (hover:hover){.footer-links a:hover{color:var(--foot)}}
+</style>
+</head>
+<body>
+<div class="page">
+  <main class="main" id="app">
+    <noscript>
+      <h1 class="h1">What is design costing you?</h1>
+      <p class="lead">This calculator needs JavaScript. Please turn it on, or write to us at loomvale@proton.me.</p>
+    </noscript>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-in">
+      <img class="footer-logo" src="loomvale-logo.png" alt="Loomvale" width="113" height="15">
+      <p class="footer-tag">Packaging and selling hard technology.</p>
+      <hr class="footer-rule">
+      <div class="footer-row">
+        <span>© 2026 Loomvale. All rights reserved.</span>
+        <span class="footer-links">
+          <a href="https://www.loomvale.xyz/cookie-policy">Cookie policy</a>
+          <a href="https://www.loomvale.xyz/terms">Terms</a>
+          <a href="https://www.loomvale.xyz/privacy">Privacy</a>
+        </span>
+      </div>
+    </div>
+  </footer>
+</div>
+<p class="sr" id="live" aria-live="polite"></p>
+
+<script>
+"use strict";
+
+/* ==========================================================================
+   CONFIG: every number and setting the page uses lives in this one object.
+   Change prices, rates, slider ranges or the endpoint here. Nothing further
+   down needs to be touched.
+   ========================================================================== */
+const CONFIG = {
+  // ----- Core numbers ------------------------------------------------------
+  HOURS_PER_FTE: 160,          // hours in a full-time month
+  MAX_SCREEN_SHARE: 0.8,       // screen work can't exceed 80% of design capacity
+  A_SAVING_RATE: 0.40,         // time saved per screen with design system + agent
+  B_SAVING_RATE: 0.70,         // share of design requests the agent takes over
+  B_FOUNDER_HOURLY: 100,       // € value of a founder hour
+  C_FIX_SAVING: 0.75,          // re-prompting / visual fix time saved
+  C_PASS_SAVING: 0.67,         // consistency-pass time saved
+  PRICES: { agent: 1900, middle: 3900, full: 7900 },
+  FORM_ENDPOINT: "",           // Google Apps Script web-app URL (ends in /exec). Paste it between the quotes.
+  BOOKING_URL: "",             // optional Cal.com / Calendly link
+  SOURCE_DEFAULT: "web",
+
+  // ----- Sliders: lowest value, highest value, step, starting value --------
+  SLIDERS: {
+    A_HOURLY: { min: 15, max: 80,   step: 1,  value: 32  },   // € per designer hour
+    B_COST:   { min: 50, max: 1000, step: 10, value: 300 },   // € per design request
+    B_HOURS:  { min: 1,  max: 12,   step: 1,  value: 4   },   // founder hours per request
+    C_HOURLY: { min: 20, max: 100,  step: 1,  value: 40  }    // € per developer hour
+  },
+
+  // ----- Answer → value. The text on the left is the chip the visitor taps --
+  A: {
+    DESIGNERS:        { "1": 1, "2": 2, "3": 3, "4": 4, "5+": 5 },
+    SCREENS:          { "Under 10": 6, "10–30": 20, "30–60": 45, "60+": 75 },            // screens per month
+    HOURS_PER_SCREEN: { "A few hours": 4, "1–2 days": 12, "3–5 days": 32, "A week+": 48 },
+    PACKAGE:          { "Yes, both": "agent", "Brand only": "middle", "Neither": "full" }
+  },
+  B: {
+    WHO:              { "Me, the founder": "founder", "A freelancer": "freelancer", "An agency": "agency", "Nobody yet": "nobody" },
+    REQUESTS:         { "1–3": 2, "4–8": 6, "9–15": 12, "15+": 20 },                     // requests per month
+    TIME_TO_ASSET:    { "Same day": "1 day", "2–3 days": "3 days", "A week": "1 week", "Longer": "2+ weeks" },
+    AGENT_TURNAROUND: "2 hours",                                                         // "3 days → 2 hours"
+    PACKAGE:          "middle"
+  },
+  C: {
+    SCREENS:          { "Under 10": 6, "10–30": 20, "30+": 40 },                         // screens per month
+    EXTRA_HOURS:      { "Under 30 min": 0.4, "About 1 hour": 1, "2 hours+": 2.5 },       // extra hours per screen
+    PASS_HOURS:       { "Never": 0, "Monthly": 12, "Every release": 24 },                // consistency-pass hours per month
+    PACKAGE:          { "Yes": "agent", "Partly": "full", "No": "full" },
+    SCORE: {
+      START: 100, MIN: 5, MAX: 95,
+      PENALTY_EXTRA_TIME: { "Under 30 min": 10, "About 1 hour": 25, "2 hours+": 40 },
+      PENALTY_PASS:       { "Never": 20, "Monthly": 15, "Every release": 25 },
+      PENALTY_TOKENS:     { "Yes": 0, "Partly": 20, "No": 35 },
+      PENALTY_PEOPLE:     { "1": 0, "2–3": 2, "4–6": 8, "7+": 15 },
+      LEVELS: [ { min: 70, label: "Low" }, { min: 40, label: "Medium" }, { min: 0, label: "High" } ]
+    }
+  },
+
+  // ----- Packages. "priceKey" points at one of the PRICES above ------------
+  PACKAGES: {
+    A: {
+      agent:  { name: "AI agent setup",           priceKey: "agent",  desc: "An AI agent set up on your existing brand and design system, connected to your Figma." },
+      middle: { name: "Design system + AI agent", priceKey: "middle", desc: "A design system built on your existing brand, plus an AI agent connected to your Figma." },
+      full:   { name: "Brand + AI design agent",  priceKey: "full",   desc: "Logo, corporate identity, design system, first 20 screens, and an AI agent connected to your Figma." }
+    },
+    B: {
+      middle: { name: "Brand + AI design agent",  priceKey: "middle", desc: "Logo, brand identity and a design system for your website, deck and socials, plus an AI agent connected to your Figma." }
+    },
+    C: {
+      agent:  { name: "AI agent setup",           priceKey: "agent",  desc: "An AI agent set up on your existing design system, connected to your Figma and codebase." },
+      // The spec's Path C table prices this package at €3,900, which is PRICES.middle.
+      // To charge €7,900 for it instead, change "middle" to "full" on the next line.
+      full:   { name: "Brand + AI design agent",  priceKey: "middle", desc: "Logo, corporate identity, design system, first 20 screens, and an AI agent connected to your Figma and codebase." }
+    }
+  },
+
+  // ----- How numbers are rounded for display, and payback wording ----------
+  ROUND_MONTHLY_TO: 10,            // €3,072 shows as €3,070
+  ROUND_YEARLY_TO: 100,            // €36,864 shows as €36,900
+  ROUND_SCREEN_HOURS_TO: 0.5,      // 7.2 h shows as 7 h
+  PAYBACK_WEEKS_PER_MONTH: 4.33,
+  PAYBACK_MAX_MONTHS: 24,          // anything longer shows as "over 2 years"
+
+  // ----- Contact details and behaviour -------------------------------------
+  CONTACT_EMAIL: "loomvale@proton.me",
+  TELEGRAM_URL: "https://t.me/loomvale_manager",
+  TELEGRAM_LABEL: "t.me/loomvale_manager",
+  PRIVACY_URL: "https://www.loomvale.xyz/privacy",
+  COUNT_UP_MS: 600,                // result numbers count up for this long
+  RETRY_DELAY_MS: 3000,            // wait before the one retry on a network error
+  STORAGE_KEY: "loomvale-calculator"
+};
+
+/* ==========================================================================
+   Copy: start options, questions, result texts
+   ========================================================================== */
+const PATHS = {
+  a: { letter: "A", option: "We have a product and a designer", optionDesc: "In-house or freelance designers working on product UI",
+       title: "Tell us about your design team", kicker: "" },
+  b: { letter: "B", option: "We only have a landing page", optionDesc: "Designing just for website, pitch deck, socials",
+       title: "How do you get design done today?", kicker: "" },
+  c: { letter: "C", option: "No designer. We build UI with AI", optionDesc: "Claude Code, Cursor, v0 or similar",
+       title: "How do you build UI today?", kicker: "Path C · AI-built UI, no designer · 7 questions" }
+};
+
+const keys = function (obj) { return Object.keys(obj); };
+
+const QUESTIONS = {
+  a: [
+    { id: "designers", type: "radio", legend: "How many designers work on your product?", options: function () { return keys(CONFIG.A.DESIGNERS); } },
+    { id: "hourly", type: "slider", slider: "A_HOURLY", format: "money", unit: "/ hour", legend: "What does one designer cost you per hour?",
+      help: function () { return "€" + CONFIG.SLIDERS.A_HOURLY.value + " Default = Vienna average incl. employer taxes and contributions."; } },
+    { id: "screens", type: "radio", legend: "How many new screens do you ship per month?", options: function () { return keys(CONFIG.A.SCREENS); } },
+    { id: "timePerScreen", type: "radio", legend: "How long does one new screen roughly take, from brief to dev-ready?", options: function () { return keys(CONFIG.A.HOURS_PER_SCREEN); } },
+    { id: "brandAndDS", type: "radio", legend: "Do you already have a brand and a design system?", options: function () { return keys(CONFIG.A.PACKAGE); } }
+  ],
+  b: [
+    { id: "who", type: "radio", legend: "Who makes your design right now?", options: function () { return keys(CONFIG.B.WHO); } },
+    { id: "requests", type: "radio", legend: "How many design requests do you have per month?",
+      helpAbove: "(Including website sections, pitch deck slides, investor updates, social posts, event graphics)",
+      options: function () { return keys(CONFIG.B.REQUESTS); } },
+    // One card, two variants: € per request, or hours per request when the founder does the design
+    { id: "cost", type: "variant", pick: function (ans) { return isFounder(ans) ? B_HOURS_QUESTION : B_COST_QUESTION; } },
+    { id: "timeToAsset", type: "radio", legend: "How long until a new asset is ready?", options: function () { return keys(CONFIG.B.TIME_TO_ASSET); } },
+    { id: "brand", type: "radio", legend: "Do you have a logo and brand identity?", options: function () { return ["Yes, solid", "Something basic", "Not really"]; } },
+    { id: "productUI", type: "radio", legend: "When do you plan to start on product UI?", options: function () { return ["Within 3 months", "3–6 months", "Later", "Not planned"]; } }
+  ],
+  c: [
+    { id: "people", type: "radio", legend: "How many people build UI with AI tools?", options: function () { return keys(CONFIG.C.SCORE.PENALTY_PEOPLE); } },
+    { id: "tools", type: "check", optional: true, legend: "Which tools?", options: function () { return ["Claude Code", "Cursor", "v0", "Lovable", "Other"]; } },
+    { id: "hourly", type: "slider", slider: "C_HOURLY", format: "money", unit: "/ hour", legend: "What does one developer hour cost you?" },
+    { id: "screens", type: "radio", legend: "Screens or UI changes shipped per month?", options: function () { return keys(CONFIG.C.SCREENS); } },
+    { id: "extraTime", type: "radio", legend: "Extra time per screen on re-prompting and visual fixes?", options: function () { return keys(CONFIG.C.EXTRA_HOURS); } },
+    { id: "consistencyPass", type: "radio", legend: "How often do you do a “make it all consistent” pass?", options: function () { return keys(CONFIG.C.PASS_HOURS); } },
+    { id: "tokens", type: "radio", legend: "Do you have design tokens or a component library?", options: function () { return keys(CONFIG.C.PACKAGE); } }
+  ]
+};
+
+const B_COST_QUESTION = { id: "cost", type: "slider", slider: "B_COST", format: "money", unit: "/ request", plusAtMax: true,
+  legend: "What does one request cost you?" };
+const B_HOURS_QUESTION = { id: "hours", type: "slider", slider: "B_HOURS", format: "hours", unit: "/ request",
+  legend: "How many hours does one request take you?",
+  help: function (v) { return "That’s about " + money(v * CONFIG.B_FOUNDER_HOURLY) + " per request, counting a founder hour as " + money(CONFIG.B_FOUNDER_HOURLY) + "."; } };
+
+const CHANGES = {
+  A: ["Lower ongoing design costs", "No extra hire", "Consistency without a full-time hire"],
+  B: ["One brand across deck, site and socials", "New assets in hours, not days", "No more pushing pixels yourself"],
+  C: ["New screens fit on the first try", "Fewer prompt rounds, more building", "Looks designed, not generated"]
+};
+const CTA_TEXT = { A: "Book a 15-min setup call", B: "Get my brand-to-launch plan", C: "Book a 15-min setup call" };
+const SUBMIT_TEXT = { book_call: "Book a 15-min setup call", email_report: "Send me the full report" };
+const DISCLAIMER = "All figures are indicative estimates based on your answers and typical project benchmarks. They are not a quote or a guarantee of results. Actual savings depend on your team, product scope and workflows, and we validate them with you on the call.";
+
+/* ==========================================================================
+   Small helpers
+   ========================================================================== */
+const app = document.getElementById("app");
+const live = document.getElementById("live");
+const NBSP = " ";
+
+function esc(s) {
+  return String(s).replace(/[&<>"']/g, function (c) {
+    return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+  });
+}
+function group(n) { return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, ","); }
+function money(n) { return "€" + group(n); }                                  // €3,070
+function roundTo(n, step) { return Math.round(n / step) * step; }
+function shortNumber(n) { return String(Math.round(n * 100) / 100); }          // 7 or 7.5
+function reducedMotion() {
+  return !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+}
+function isFounder(ans) { return CONFIG.B.WHO[ans.who] === "founder"; }
+function sliderValue(key, raw) {
+  const cfg = CONFIG.SLIDERS[key];
+  const n = Number(raw);
+  if (raw === undefined || raw === null || raw === "" || !isFinite(n)) return cfg.value;
+  return Math.min(cfg.max, Math.max(cfg.min, n));
+}
+function sliderText(q, v) {
+  if (q.format === "hours") return v + NBSP + "h";
+  return money(v) + (q.plusAtMax && v >= CONFIG.SLIDERS[q.slider].max ? "+" : "");
+}
+function sliderShare(key, v) {
+  const cfg = CONFIG.SLIDERS[key];
+  return cfg.max > cfg.min ? (v - cfg.min) / (cfg.max - cfg.min) : 0;
+}
+function resolveQuestion(p, q) { return q.type === "variant" ? q.pick(state.answers[p]) : q; }
+function findSliderQuestion(p, id) {
+  if (p === "b" && id === "cost") return B_COST_QUESTION;
+  if (p === "b" && id === "hours") return B_HOURS_QUESTION;
+  return QUESTIONS[p].filter(function (q) { return q.id === id; })[0];
+}
+
+/* ==========================================================================
+   State (kept in sessionStorage so a reload does not lose progress)
+   ========================================================================== */
+function newId() {
+  try { if (window.crypto && crypto.randomUUID) return crypto.randomUUID(); } catch (e) {}
+  try {
+    const bytes = new Uint8Array(16);
+    crypto.getRandomValues(bytes);
+    return Array.prototype.map.call(bytes, function (b) { return ("0" + b.toString(16)).slice(-2); }).join("");
+  } catch (e) {}
+  return Date.now().toString(36) + Math.random().toString(36).slice(2);
+}
+function readSource() {
+  try {
+    const v = new URLSearchParams(window.location.search).get("src");
+    if (v) return v.trim().slice(0, 64).replace(/[^\w.\-]/g, "") || null;
+  } catch (e) {}
+  return null;
+}
+function plainObject(v) { return v && typeof v === "object" && !Array.isArray(v) ? v : {}; }
+function loadState() {
+  let saved = null;
+  try { saved = JSON.parse(window.sessionStorage.getItem(CONFIG.STORAGE_KEY)); } catch (e) {}
+  saved = plainObject(saved);
+  const answers = plainObject(saved.answers);
+  return {
+    path: PATHS[saved.path] ? saved.path : null,
+    answers: { a: plainObject(answers.a), b: plainObject(answers.b), c: plainObject(answers.c) },
+    result: saved.result && PATHS[String(saved.result.path).toLowerCase()] ? saved.result : null,
+    contactIntent: saved.contactIntent === "email_report" ? "email_report" : "book_call",
+    source: readSource() || saved.source || CONFIG.SOURCE_DEFAULT,
+    sessionId: saved.sessionId || newId(),
+    sent: plainObject(saved.sent)            // which paths already sent result_viewed
+  };
+}
+const state = loadState();
+const contactDraft = { name: "", email: "", company: "" };   // typed contact details, kept in memory only
+function save() {
+  try { window.sessionStorage.setItem(CONFIG.STORAGE_KEY, JSON.stringify(state)); } catch (e) {}
+}
+save();
+
+/* ==========================================================================
+   Calculations. Nothing is rounded here: rounding happens only for display.
+   ========================================================================== */
+function packageFor(path, key) {
+  const def = CONFIG.PACKAGES[path][key];
+  return { key: key, name: def.name, desc: def.desc, price: CONFIG.PRICES[def.priceKey] };
+}
+function payback(price, monthlySaving) {
+  if (!(monthlySaving > 0)) return null;                       // hides the "Pays for itself" row
+  const m = price / monthlySaving;
+  if (m < 1) return "under 1 month";
+  if (m < 2) return "~" + Math.round(m * CONFIG.PAYBACK_WEEKS_PER_MONTH) + " weeks";
+  if (m > CONFIG.PAYBACK_MAX_MONTHS) return "over 2 years";
+  return "~" + Math.round(m) + " months";
+}
+function computeA(ans) {
+  const d = CONFIG.A.DESIGNERS[ans.designers];
+  const r = sliderValue("A_HOURLY", ans.hourly);
+  const s = CONFIG.A.SCREENS[ans.screens];
+  const t = CONFIG.A.HOURS_PER_SCREEN[ans.timePerScreen];
+  const baselineHours = Math.min(s * t, d * CONFIG.HOURS_PER_FTE * CONFIG.MAX_SCREEN_SHARE);
+  const hoursSaved = baselineHours * CONFIG.A_SAVING_RATE;
+  const monthly = hoursSaved * r;
+  const tNew = t * (1 - CONFIG.A_SAVING_RATE);
+  const pkg = packageFor("A", CONFIG.A.PACKAGE[ans.brandAndDS]);
+  return {
+    path: "A", monthly: monthly, yearly: monthly * 12, hoursSaved: hoursSaved, score: null,
+    baselineHours: baselineHours, hoursPerDesigner: hoursSaved / d, t: t, tNew: tNew,
+    extraScreens: tNew > 0 ? Math.floor(hoursSaved / tNew + 1e-9) : 0,     // 1e-9 only absorbs floating-point noise
+    pkg: pkg, payback: payback(pkg.price, monthly)
+  };
+}
+function computeB(ans) {
+  const founder = isFounder(ans);
+  const n = CONFIG.B.REQUESTS[ans.requests];
+  const hours = sliderValue("B_HOURS", ans.hours);
+  const c = founder ? hours * CONFIG.B_FOUNDER_HOURLY : sliderValue("B_COST", ans.cost);
+  const monthlySpend = n * c;
+  const monthly = monthlySpend * CONFIG.B_SAVING_RATE;
+  const pkg = packageFor("B", CONFIG.B.PACKAGE);
+  return {
+    path: "B", monthly: monthly, yearly: monthly * 12, hoursSaved: null, score: null,
+    founder: founder, hoursPerRequest: hours, costPerRequest: c, monthlySpend: monthlySpend,
+    before: CONFIG.B.TIME_TO_ASSET[ans.timeToAsset],
+    pkg: pkg, payback: payback(pkg.price, monthly)
+  };
+}
+function computeC(ans) {
+  const S = CONFIG.C.SCORE;
+  const r = sliderValue("C_HOURLY", ans.hourly);
+  const s = CONFIG.C.SCREENS[ans.screens];
+  const x = CONFIG.C.EXTRA_HOURS[ans.extraTime];
+  const cp = CONFIG.C.PASS_HOURS[ans.consistencyPass];
+  const fixHours = s * x;
+  const hoursSaved = fixHours * CONFIG.C_FIX_SAVING + cp * CONFIG.C_PASS_SAVING;
+  const monthly = hoursSaved * r;
+  let score = S.START - S.PENALTY_EXTRA_TIME[ans.extraTime] - S.PENALTY_PASS[ans.consistencyPass] -
+              S.PENALTY_TOKENS[ans.tokens] - S.PENALTY_PEOPLE[ans.people];
+  score = Math.min(S.MAX, Math.max(S.MIN, score));
+  let level = S.LEVELS[S.LEVELS.length - 1].label;
+  for (let i = 0; i < S.LEVELS.length; i++) { if (score >= S.LEVELS[i].min) { level = S.LEVELS[i].label; break; } }
+  const pkg = packageFor("C", CONFIG.C.PACKAGE[ans.tokens]);
+  return {
+    path: "C", monthly: monthly, yearly: monthly * 12, hoursSaved: hoursSaved, score: score, level: level,
+    fixHours: fixHours, pkg: pkg, payback: payback(pkg.price, monthly)
+  };
+}
+function compute(p) {
+  if (!isComplete(p)) return null;
+  const ans = state.answers[p];
+  return p === "a" ? computeA(ans) : p === "b" ? computeB(ans) : computeC(ans);
+}
+function shown(r) {            // the rounded figures the visitor sees
+  return {
+    monthly: roundTo(r.monthly, CONFIG.ROUND_MONTHLY_TO),
+    yearly: roundTo(r.yearly, CONFIG.ROUND_YEARLY_TO),
+    hours: r.hoursSaved === null ? null : Math.round(r.hoursSaved)
+  };
+}
+
+/* ==========================================================================
+   Answers: which are required, which are given
+   ========================================================================== */
+function requiredIds(p) {
+  return QUESTIONS[p].filter(function (q) { return q.type === "radio" && !q.optional; }).map(function (q) { return q.id; });
+}
+function isAnswered(p, id) {
+  const q = QUESTIONS[p].filter(function (x) { return x.id === id; })[0];
+  return q.options().indexOf(state.answers[p][id]) > -1;
+}
+function isComplete(p) { return requiredIds(p).every(function (id) { return isAnswered(p, id); }); }
+function answerText(p, q) {
+  const ans = state.answers[p];
+  const rq = resolveQuestion(p, q);
+  if (rq.type === "slider") return sliderText(rq, sliderValue(rq.slider, ans[rq.id])) + " " + rq.unit;
+  if (rq.type === "check") return Array.isArray(ans[rq.id]) && ans[rq.id].length ? ans[rq.id].join(", ") : "not answered";
+  return ans[rq.id] || "not answered";
+}
+function answersForPayload(p) {
+  const ans = state.answers[p];
+  if (p === "a") {
+    return { designers: ans.designers, hourly: sliderValue("A_HOURLY", ans.hourly), screens: ans.screens,
+             timePerScreen: ans.timePerScreen, brandAndDS: ans.brandAndDS };
+  }
+  if (p === "b") {
+    const out = { who: ans.who, requests: ans.requests };
+    if (isFounder(ans)) {
+      out.hoursPerRequest = sliderValue("B_HOURS", ans.hours);
+      out.costPerRequest = out.hoursPerRequest * CONFIG.B_FOUNDER_HOURLY;
+    } else {
+      out.costPerRequest = sliderValue("B_COST", ans.cost);
+    }
+    out.timeToAsset = ans.timeToAsset; out.brand = ans.brand; out.productUI = ans.productUI;
+    return out;
+  }
+  return { people: ans.people, tools: Array.isArray(ans.tools) ? ans.tools : [], hourly: sliderValue("C_HOURLY", ans.hourly),
+           screens: ans.screens, extraTime: ans.extraTime, consistencyPass: ans.consistencyPass, tokens: ans.tokens };
+}
+
+/* ==========================================================================
+   Data collection: fire and forget, one retry, never blocks the page
+   ========================================================================== */
+function buildPayload(eventName, r) {
+  return {
+    event: eventName,
+    timestamp: new Date().toISOString(),
+    sessionId: state.sessionId,
+    source: state.source,
+    path: r.path,
+    answers: answersForPayload(r.path.toLowerCase()),
+    result: { yearly: r.yearly, monthly: r.monthly, hoursSaved: r.hoursSaved, package: r.pkg.name,
+              price: r.pkg.price, payback: r.payback, score: r.score }
+  };
+}
+function send(payload, onFail) {
+  const body = JSON.stringify(payload);
+  function attempt(isRetry) {
+    let request;
+    try {
+      request = window.fetch(CONFIG.FORM_ENDPOINT, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: body
+      });
+    } catch (e) {
+      request = Promise.reject(e);
+    }
+    request.catch(function () {
+      if (!isRetry) window.setTimeout(function () { attempt(true); }, CONFIG.RETRY_DELAY_MS);
+      else if (onFail) onFail();
+    });
+  }
+  attempt(false);
+}
+function resultLines(r) {
+  const d = shown(r);
+  const lines = [];
+  if (r.path === "B") {
+    lines.push("Yearly saving: " + money(d.yearly));
+    lines.push("Monthly saving: ≈ " + money(d.monthly));
+    lines.push("Time to next asset: " + r.before + " → " + CONFIG.B.AGENT_TURNAROUND);
+  } else {
+    lines.push("Yearly saving: ≈ " + money(d.yearly));
+    lines.push("Monthly saving: ≈ " + money(d.monthly));
+    lines.push((r.path === "A" ? "Time back every month: ≈ " : "Developer hours saved every month: ≈ ") + d.hours + " h");
+  }
+  if (r.path === "A") {
+    lines.push("Extra output: ≈ " + r.extraScreens + " screens a month");
+    lines.push("Time needed for a new screen: " + shortNumber(r.t) + " h → " + shortNumber(roundTo(r.tNew, CONFIG.ROUND_SCREEN_HOURS_TO)) + " h");
+  }
+  if (r.path === "C") lines.push("Consistency score: " + r.score + " / 100 (" + r.level + " design drift)");
+  lines.push("Recommended: " + r.pkg.name + " (" + money(r.pkg.price) + ")");
+  if (r.payback) lines.push("Pays for itself in: " + r.payback);
+  return lines;
+}
+function buildMailto(lead, r) {
+  const p = r.path.toLowerCase();
+  const lines = [
+    "Name: " + lead.name,
+    "Email: " + lead.email,
+    "Company: " + (lead.company || "not given"),
+    "Wants: " + SUBMIT_TEXT[lead.intent],
+    "Email me the full report: " + (lead.wantsReport ? "yes" : "no"),
+    "",
+    "Path " + r.path + ": " + PATHS[p].option
+  ].concat(resultLines(r), ["", "Answers:"],
+    QUESTIONS[p].map(function (q) { return "- " + resolveQuestion(p, q).legend + " " + answerText(p, q); }),
+    ["", "Source: " + lead.source, "Session: " + lead.sessionId]);
+  return "mailto:" + CONFIG.CONTACT_EMAIL +
+    "?subject=" + encodeURIComponent("Calculator lead: " + lead.name + ", Path " + r.path) +
+    "&body=" + encodeURIComponent(lines.join("\r\n"));
+}
+
+/* ==========================================================================
+   Screens
+   ========================================================================== */
+function renderStart() {
+  app.innerHTML =
+    '<h1 class="h1" tabindex="-1" data-focus>What is design costing you?</h1>' +
+    '<p class="lead">In &lt;60 seconds you will see how many hours and euros an AI design agent would save your team.</p>' +
+    '<p class="label" id="where-label">Where are you right now?</p>' +
+    '<div class="options" role="group" aria-labelledby="where-label">' +
+    ["a", "b", "c"].map(function (p) {
+      return '<a class="card option" href="#' + p + '">' +
+        '<span class="tag" aria-hidden="true">' + PATHS[p].letter + '</span>' +
+        '<span><span class="option-title">' + esc(PATHS[p].option) + '</span>' +
+        '<span class="option-desc">' + esc(PATHS[p].optionDesc) + '</span></span></a>';
+    }).join("") +
+    '</div>' +
+    '<p class="note">No sign-up needed to see your result.</p>';
+}
+
+/* ----- Questions ----- */
+function choiceHTML(p, q) {
+  const ans = state.answers[p][q.id];
+  const multi = q.type === "check";
+  return '<fieldset>' +
+    '<legend>' + esc(q.legend) + (q.optional ? ' <span class="opt">(optional)</span>' : '') + '</legend>' +
+    (q.helpAbove ? '<p class="help">' + esc(q.helpAbove) + '</p>' : '') +
+    '<div class="chips">' +
+    q.options().map(function (o) {
+      const on = multi ? Array.isArray(ans) && ans.indexOf(o) > -1 : ans === o;
+      return '<label class="chip"><input type="' + (multi ? "checkbox" : "radio") + '" name="' + p + "-" + q.id + '" value="' + esc(o) +
+        '" data-path="' + p + '" data-q="' + q.id + '"' + (on ? " checked" : "") + '><span>' + esc(o) + '</span></label>';
+    }).join("") +
+    '</div></fieldset>';
+}
+function sliderHTML(p, q) {
+  const cfg = CONFIG.SLIDERS[q.slider];
+  const v = sliderValue(q.slider, state.answers[p][q.id]);
+  const legendId = "legend-" + p + "-" + q.id;
+  return '<fieldset>' +
+    '<legend id="' + legendId + '">' + esc(q.legend) + '</legend>' +
+    '<p class="sv" aria-hidden="true"><span class="num sv-num" data-slider-value>' + esc(sliderText(q, v)) + '</span>' +
+    '<span class="sv-unit">' + esc(q.unit) + '</span></p>' +
+    '<div class="range" style="--p:' + sliderShare(q.slider, v) + '">' +
+    '<div class="range-track"><div class="range-fill"></div></div>' +
+    '<input type="range" min="' + cfg.min + '" max="' + cfg.max + '" step="' + cfg.step + '" value="' + v + '"' +
+    ' data-path="' + p + '" data-q="' + q.id + '" aria-labelledby="' + legendId + '"' +
+    ' aria-valuetext="' + esc(sliderText(q, v) + " " + q.unit.replace("/ ", "per ")) + '">' +
+    '</div>' +
+    '<div class="range-ends" aria-hidden="true"><span>' + esc(sliderText(q, cfg.min)) + '</span><span>' + esc(sliderText(q, cfg.max)) + '</span></div>' +
+    (q.help ? '<p class="help help-below" data-slider-help>' + esc(q.help(v)) + '</p>' : '') +
+    '</fieldset>';
+}
+function questionHTML(p, q) {
+  const rq = resolveQuestion(p, q);
+  return rq.type === "slider" ? sliderHTML(p, rq) : choiceHTML(p, rq);
+}
+function renderQuestions(p) {
+  const meta = PATHS[p];
+  app.innerHTML =
+    '<a class="back" href="#start">← Back</a>' +
+    '<div class="progress" role="progressbar" aria-label="Questions answered" aria-valuemin="0" aria-valuemax="' + requiredIds(p).length + '" aria-valuenow="0">' +
+    '<div class="progress-fill"></div></div>' +
+    (meta.kicker ? '<p class="kicker">' + esc(meta.kicker) + '</p>' : '') +
+    '<h2 class="h2" tabindex="-1" data-focus>' + esc(meta.title) + '</h2>' +
+    '<div class="stack">' +
+    QUESTIONS[p].map(function (q) { return '<div class="card q" data-card="' + q.id + '">' + questionHTML(p, q) + '</div>'; }).join("") +
+    '</div>' +
+    '<button type="button" class="btn" data-action="see-result" data-path="' + p + '" aria-disabled="true">See my result →</button>';
+  updateProgress(p);
+}
+function updateProgress(p) {
+  const ids = requiredIds(p);
+  const done = ids.filter(function (id) { return isAnswered(p, id); }).length;
+  const bar = app.querySelector(".progress");
+  if (bar) {
+    bar.setAttribute("aria-valuenow", String(done));
+    bar.firstElementChild.style.width = (ids.length ? (done / ids.length) * 100 : 100) + "%";
+  }
+  const btn = app.querySelector('[data-action="see-result"]');
+  if (btn) btn.setAttribute("aria-disabled", done === ids.length ? "false" : "true");
+}
+function onChoice(input) {
+  const p = input.getAttribute("data-path");
+  const id = input.getAttribute("data-q");
+  if (input.type === "radio") {
+    state.answers[p][id] = input.value;
+  } else {
+    const boxes = app.querySelectorAll('input[type="checkbox"][data-path="' + p + '"][data-q="' + id + '"]');
+    state.answers[p][id] = Array.prototype.filter.call(boxes, function (b) { return b.checked; }).map(function (b) { return b.value; });
+  }
+  save();
+  const card = input.closest(".q");
+  if (card) card.classList.remove("is-missing");
+  if (p === "b" && id === "who") {                 // founder ↔ everyone else: swap the cost slider
+    const costCard = app.querySelector('[data-card="cost"]');
+    const q = QUESTIONS.b.filter(function (x) { return x.id === "cost"; })[0];
+    if (costCard) costCard.innerHTML = questionHTML("b", q);
+  }
+  updateProgress(p);
+}
+function onSlide(input) {
+  const p = input.getAttribute("data-path");
+  const id = input.getAttribute("data-q");
+  const q = findSliderQuestion(p, id);
+  const v = sliderValue(q.slider, input.value);
+  state.answers[p][id] = v;
+  save();
+  const card = input.closest(".q");
+  input.parentNode.style.setProperty("--p", String(sliderShare(q.slider, v)));
+  input.setAttribute("aria-valuetext", sliderText(q, v) + " " + q.unit.replace("/ ", "per "));
+  card.querySelector("[data-slider-value]").textContent = sliderText(q, v);
+  const help = card.querySelector("[data-slider-help]");
+  if (help && q.help) help.textContent = q.help(v);
+}
+function onSeeResult(btn) {
+  const p = btn.getAttribute("data-path");
+  const missing = requiredIds(p).filter(function (id) { return !isAnswered(p, id); })[0];
+  if (!missing) { window.location.hash = "#" + p + "-result"; return; }
+  Array.prototype.forEach.call(app.querySelectorAll(".q.is-missing"), function (c) { c.classList.remove("is-missing"); });
+  const card = app.querySelector('[data-card="' + missing + '"]');
+  card.classList.add("is-missing");
+  const first = card.querySelector("input");
+  if (first) { try { first.focus({ preventScroll: true }); } catch (e) { first.focus(); } }
+  try { card.scrollIntoView({ behavior: reducedMotion() ? "auto" : "smooth", block: "center" }); } catch (e) { card.scrollIntoView(); }
+  const q = QUESTIONS[p].filter(function (x) { return x.id === missing; })[0];
+  live.textContent = "";
+  window.setTimeout(function () { live.textContent = "Please answer this question first: " + q.legend; }, 50);
+}
+
+/* ----- Results ----- */
+function countSpan(value, step, isMoney) {
+  return '<span data-count="' + value + '" data-step="' + step + '"' + (isMoney ? ' data-money="1"' : '') + '>' +
+    (isMoney ? money(value) : group(value)) + '</span>';
+}
+function heroHTML(label, big, sub) {
+  return '<section class="hero">' +
+    '<h2 class="hero-label" tabindex="-1" data-focus>' + label + '</h2>' +
+    '<p class="hero-num"><span class="num hero-big">' + big + '</span><span class="hero-per">/ year</span></p>' +
+    '<p class="hero-sub">' + sub + '</p></section>';
+}
+function statHTML(label, num, sub, isText) {
+  return '<div class="card"><p class="stat-label">' + label + '</p>' +
+    '<p class="num stat-num' + (isText ? ' is-text' : '') + '">' + num + '</p>' +
+    (sub ? '<p class="stat-sub">' + sub + '</p>' : '') + '</div>';
+}
+function changesHTML(path) {
+  return '<div class="card"><h3 class="card-title">What changes for you:</h3><ul class="bullets">' +
+    CHANGES[path].map(function (t) { return '<li>' + esc(t) + '</li>'; }).join("") + '</ul></div>';
+}
+function packageHTML(r) {
+  return '<div class="card pkg"><p class="pkg-label">Recommended for you</p>' +
+    '<div class="pkg-head"><h3 class="card-title">' + esc(r.pkg.name) + '</h3><span class="pkg-price">' + money(r.pkg.price) + '</span></div>' +
+    '<p class="pkg-desc">' + esc(r.pkg.desc) + '</p>' +
+    (r.payback ? '<p class="pkg-pay">Pays for itself in <b>' + esc(r.payback) + '</b></p>' : '') +
+    '</div>';
+}
+function ctaHTML(path) {
+  return '<div class="cta"><img class="kl1k" src="kl1k.png" alt="" width="56" height="56">' +
+    '<a class="btn-white" href="#contact" data-intent="book_call">' + esc(CTA_TEXT[path]) + '</a></div>' +
+    '<p class="center"><a class="email-link" href="#contact" data-intent="email_report">or email me the full report</a></p>' +
+    '<p class="disclaimer">' + DISCLAIMER + '</p>';
+}
+function resultBodyHTML(r) {
+  const d = shown(r);
+  const approx = "≈" + NBSP;
+  if (r.path === "A") {
+    return heroHTML("What a design system + AI agent saves you",
+        approx + countSpan(d.yearly, CONFIG.ROUND_YEARLY_TO, true),
+        approx + countSpan(d.monthly, CONFIG.ROUND_MONTHLY_TO, true) + " every month") +
+      '<div class="stats">' +
+        statHTML("Time back every month", approx + countSpan(d.hours, 1) + NBSP + "h",
+                 approx + Math.round(r.hoursPerDesigner) + NBSP + "h per designer") +
+        statHTML("Extra output, same team", approx + countSpan(r.extraScreens, 1), "screens a month") +
+      '</div>' +
+      '<div class="card row-card"><span>Time needed for a new screen:</span>' +
+        '<span class="values"><span class="sr">before </span><s class="was">' + shortNumber(r.t) + NBSP + 'h</s> ' +
+        '<span aria-hidden="true">→</span><span class="sr"> now</span> <b class="now">' +
+        shortNumber(roundTo(r.tNew, CONFIG.ROUND_SCREEN_HOURS_TO)) + NBSP + 'h</b></span></div>';
+  }
+  if (r.path === "B") {
+    return heroHTML("What you’d save on design requests",
+        countSpan(d.yearly, CONFIG.ROUND_YEARLY_TO, true),
+        approx + countSpan(d.monthly, CONFIG.ROUND_MONTHLY_TO, true) + " a month · most requests made by your AI design agent") +
+      '<div class="stats">' +
+        statHTML("Time to next asset", esc(r.before).replace(/ /g, NBSP) + " → " + esc(CONFIG.B.AGENT_TURNAROUND).replace(/ /g, NBSP), "", true) +
+        statHTML("Design spend", approx + "−" + Math.round(CONFIG.B_SAVING_RATE * 100) + "%", "a month") +
+      '</div>';
+  }
+  return heroHTML("What a design system + AI agent saves you",
+      approx + countSpan(d.yearly, CONFIG.ROUND_YEARLY_TO, true),
+      approx + countSpan(d.monthly, CONFIG.ROUND_MONTHLY_TO, true) + " and " + countSpan(d.hours, 1) + " developer hours every month") +
+    '<div class="card"><div class="score-row"><span class="score-label">Your consistency score:</span>' +
+      '<span><span class="num score-num">' + countSpan(r.score, 1) + '</span> <span class="score-of">/ 100</span></span></div>' +
+      '<div class="bar" aria-hidden="true"><div class="bar-fill" style="width:' + r.score + '%"></div></div>' +
+      '<p class="score-text">' + esc(r.level) + ' design drift: every prompt invents slightly different colors, spacing and components.</p></div>';
+}
+let countFrame = 0;
+function countUp() {
+  window.cancelAnimationFrame(countFrame);
+  if (reducedMotion() || !window.requestAnimationFrame) return;
+  const items = Array.prototype.map.call(app.querySelectorAll("[data-count]"), function (el) {
+    return { el: el, to: Number(el.getAttribute("data-count")), step: Number(el.getAttribute("data-step")) || 1,
+             isMoney: el.hasAttribute("data-money"), final: el.textContent };
+  });
+  if (!items.length) return;
+  let start = 0;
+  function paint(k) {
+    const eased = 1 - Math.pow(1 - k, 3);
+    items.forEach(function (it) {
+      if (k >= 1) { it.el.textContent = it.final; return; }
+      const v = roundTo(it.to * eased, it.step);
+      it.el.textContent = it.isMoney ? money(v) : group(v);
+    });
+  }
+  function frame(now) {
+    if (!start) start = now;
+    const k = Math.min(1, (now - start) / CONFIG.COUNT_UP_MS);
+    paint(k);
+    if (k < 1) countFrame = window.requestAnimationFrame(frame);
+  }
+  paint(0);
+  countFrame = window.requestAnimationFrame(frame);
+}
+function renderResult(p) {
+  const r = compute(p);
+  state.path = p;
+  state.result = { path: r.path, yearly: r.yearly, monthly: r.monthly, hoursSaved: r.hoursSaved, package: r.pkg.name,
+                   price: r.pkg.price, payback: r.payback, score: r.score };
+  app.innerHTML =
+    '<a class="back" href="#' + p + '">← Change answers</a>' +
+    '<div class="stack">' + resultBodyHTML(r) + changesHTML(r.path) + packageHTML(r) + '</div>' +
+    ctaHTML(r.path);
+  countUp();
+  if (!state.sent[r.path]) {                       // once per path per session
+    state.sent[r.path] = true;
+    if (CONFIG.FORM_ENDPOINT) send(buildPayload("result_viewed", r));
+  }
+  save();
+}
+
+/* ----- Contact ----- */
+const VALIDATORS = {
+  name: function (v) { return v.trim() ? "" : "Please enter your name."; },
+  email: function (v) { return /^[^\s@]+@([^\s@.]+\.)+[^\s@.]{2,}$/.test(v.trim()) ? "" : "Please enter a valid email so we can reach you."; }
+};
+function validateField(input, showError) {
+  const rule = VALIDATORS[input.name];
+  if (!rule) return true;
+  const message = rule(input.value);
+  const err = document.getElementById(input.id + "-error");
+  if (!message) {
+    input.removeAttribute("aria-invalid");
+    err.hidden = true; err.textContent = "";
+    return true;
+  }
+  if (showError) {
+    input.setAttribute("aria-invalid", "true");
+    err.textContent = message; err.hidden = false;
+  }
+  return false;
+}
+function fieldHTML(name, label, attrs, optional) {
+  const id = "field-" + name;
+  return '<div class="field"><label for="' + id + '">' + label + (optional ? ' <span class="opt">(optional)</span>' : '') + '</label>' +
+    '<input class="input" id="' + id + '" name="' + name + '" value="' + esc(contactDraft[name]) + '" ' + attrs +
+    (optional ? '' : ' required aria-describedby="' + id + '-error"') + '>' +
+    (optional ? '' : '<p class="err" id="' + id + '-error" hidden></p>') + '</div>';
+}
+function renderContact() {
+  const r = compute(state.result.path.toLowerCase());
+  const p = r.path.toLowerCase();
+  const intent = state.contactIntent;
+  app.innerHTML =
+    '<a class="back" href="#' + p + '-result">← Back to my result</a>' +
+    '<h2 class="h2" tabindex="-1" data-focus style="margin-top:12px;margin-bottom:8px">Let’s look at your numbers together</h2>' +
+    '<p class="lead" style="margin-bottom:20px">Your answers come with your message, so we arrive prepared.</p>' +
+    '<p class="pill"><span>Your result</span><b>' + money(shown(r).yearly) + ' / year. Path ' + r.path + '</b></p>' +
+    '<form class="contact-form" novalidate>' +
+    fieldHTML("name", "Name", 'type="text" autocomplete="name" autocapitalize="words" maxlength="100"') +
+    fieldHTML("email", "Work email", 'type="email" inputmode="email" autocomplete="email" autocapitalize="off" autocorrect="off" spellcheck="false" maxlength="254"') +
+    fieldHTML("company", "Company", 'type="text" autocomplete="organization" maxlength="120"', true) +
+    '<label class="check"><input type="checkbox" name="report"' + (intent === "email_report" ? " checked" : "") + '><span>Email me the full report</span></label>' +
+    '<button type="submit" class="btn">' + SUBMIT_TEXT[intent] + '</button>' +
+    '<p class="legal">By sending this you agree that Loomvale stores your details to contact you. ' +
+    '<a href="' + esc(CONFIG.PRIVACY_URL) + '">Privacy policy</a></p>' +
+    '</form>' +
+    '<div class="direct"><p class="direct-title">Rather write directly?</p>' +
+    '<p class="direct-line">Telegram: <a href="' + esc(CONFIG.TELEGRAM_URL) + '">' + esc(CONFIG.TELEGRAM_LABEL) + '</a></p>' +
+    '<p class="direct-line">Email: <a href="mailto:' + esc(CONFIG.CONTACT_EMAIL) + '">' + esc(CONFIG.CONTACT_EMAIL) + '</a></p></div>';
+}
+function openMail(url) { try { window.location.href = url; } catch (e) {} }
+function onSubmit(form) {
+  const inputs = [form.elements.name, form.elements.email];
+  let firstInvalid = null;
+  inputs.forEach(function (input) { if (!validateField(input, true) && !firstInvalid) firstInvalid = input; });
+  if (firstInvalid) { firstInvalid.focus(); return; }
+
+  const r = compute(state.result.path.toLowerCase());
+  const lead = buildPayload("lead_submitted", r);
+  lead.name = form.elements.name.value.trim();
+  lead.email = form.elements.email.value.trim();
+  lead.company = form.elements.company.value.trim();
+  lead.wantsReport = form.elements.report.checked;
+  lead.intent = state.contactIntent;
+
+  const mailto = buildMailto(lead, r);
+  const useMail = !CONFIG.FORM_ENDPOINT || window.navigator.onLine === false;
+  renderSuccess(lead, r, mailto, useMail);
+  if (useMail) {
+    openMail(mailto);                              // no endpoint (or offline): hand the lead to the visitor's email app
+  } else {
+    send(lead, function () {                       // both tries failed: fall back to email
+      const note = app.querySelector("[data-mail-fallback]");
+      if (note) note.hidden = false;
+      openMail(mailto);
+    });
+  }
+}
+function renderSuccess(lead, r, mailto, mailShown) {
+  const firstName = lead.name.split(/\s+/)[0];
+  app.innerHTML =
+    '<a class="back" href="#' + r.path.toLowerCase() + '-result">← Back to my result</a>' +
+    '<div class="success">' +
+    '<img class="kl1k" src="kl1k.png" alt="" width="64" height="64">' +
+    '<h2 class="h2" tabindex="-1" data-focus>Thanks, ' + esc(firstName) + '!</h2>' +
+    '<p>We’ll get back to you within 24 hours to pick a time.</p>' +
+    (lead.wantsReport ? '<p>Your full report is on its way to ' + esc(lead.email) + '.</p>' : '') +
+    '<p data-mail-fallback' + (mailShown ? '' : ' hidden') + '>We’ve put your details into an email for you. If your email app didn’t open, ' +
+    '<a href="' + esc(mailto) + '">tap here to send it</a>.</p>' +
+    '<p>Quicker? Message us on Telegram: <a href="' + esc(CONFIG.TELEGRAM_URL) + '">' + esc(CONFIG.TELEGRAM_LABEL) + '</a></p>' +
+    (CONFIG.BOOKING_URL ? '<a class="btn" href="' + esc(CONFIG.BOOKING_URL) + '" target="_blank" rel="noopener">Pick a time now</a>' : '') +
+    '</div>';
+  window.scrollTo(0, 0);
+  focusHeading();
+}
+
+/* ==========================================================================
+   Routing: #start, #a, #a-result, #b, #b-result, #c, #c-result, #contact
+   ========================================================================== */
+function focusHeading() {
+  const h = app.querySelector("[data-focus]");
+  if (!h) return;
+  try { h.focus({ preventScroll: true }); } catch (e) { h.focus(); }
+}
+function route(isFirstLoad) {
+  const name = window.location.hash.replace(/^#/, "");
+  const resultMatch = /^([abc])-result$/.exec(name);
+  if (PATHS[name]) {
+    state.path = name; save();
+    renderQuestions(name);
+  } else if (resultMatch) {
+    if (!isComplete(resultMatch[1])) { window.location.replace("#" + resultMatch[1]); return; }
+    renderResult(resultMatch[1]);
+  } else if (name === "contact") {
+    if (!state.result || !isComplete(state.result.path.toLowerCase())) { window.location.replace("#start"); return; }
+    renderContact();
+  } else {
+    if (name && name !== "start") { window.location.replace("#start"); return; }
+    renderStart();
+  }
+  window.scrollTo(0, 0);
+  if (isFirstLoad !== true) focusHeading();
+}
+
+app.addEventListener("change", function (e) {
+  const t = e.target;
+  if (t.matches('input[data-q][type="radio"], input[data-q][type="checkbox"]')) onChoice(t);
+});
+app.addEventListener("input", function (e) {
+  const t = e.target;
+  if (t.matches('input[type="range"][data-q]')) { onSlide(t); return; }
+  if (t.matches(".input")) {
+    contactDraft[t.name] = t.value;
+    if (t.getAttribute("aria-invalid") === "true") validateField(t, false);   // clears the error once valid
+  }
+});
+app.addEventListener("focusout", function (e) {
+  if (e.target.matches && e.target.matches(".input")) validateField(e.target, true);
+});
+app.addEventListener("click", function (e) {
+  const intentLink = e.target.closest("[data-intent]");
+  if (intentLink) { state.contactIntent = intentLink.getAttribute("data-intent"); save(); return; }
+  const seeResult = e.target.closest('[data-action="see-result"]');
+  if (seeResult) onSeeResult(seeResult);
+});
+app.addEventListener("submit", function (e) { e.preventDefault(); onSubmit(e.target); });
+window.addEventListener("hashchange", function () { route(false); });
+
+try { if ("scrollRestoration" in window.history) window.history.scrollRestoration = "manual"; } catch (e) {}
+route(true);
+window.addEventListener("load", function () { const img = new Image(); img.src = "kl1k.png"; });   // warm the mascot for the result screen
+</script>
+</body>
+</html>
