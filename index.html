@@ -247,7 +247,8 @@ const CONFIG = {
   C_PASS_SAVING: 0.67,         // consistency-pass time saved
   PRICES: { agent: 1900, middle: 3900, full: 7900 },
   FORM_ENDPOINT: "",           // Google Apps Script web-app URL (ends in /exec). Paste it between the quotes. Until then requests can only leave through the visitor's own email app.
-  BOOKING_URL: "",             // optional Cal.com / Calendly link
+  BOOKING_URL: "",             // Calendly / Cal.com link. When set, the result button opens it directly: the visitor picks a time and both sides get the invite.
+  BOOKING_NOTE_PARAMS: ["a1"], // where the calculator result is put in that link. Calendly: ["a1"] (its "anything to help us prepare" question). Cal.com: ["notes"].
   SOURCE_DEFAULT: "web",
 
   // ----- Sliders: lowest value, highest value, step, starting value --------
@@ -656,7 +657,7 @@ function buildMailto(lead, r) {
     ["", "Source: " + lead.source, "Session: " + lead.sessionId]);
   return "mailto:" + CONFIG.CONTACT_EMAIL +
     "?subject=" + encodeURIComponent("Calculator lead: " + lead.name + ", Path " + r.path) +
-    "&body=" + encodeURIComponent(lines.join("\r\n"));
+    "&body=" + encodeURIComponent(lines.join("\r\n").replace(/\u00a0/g, " "));
 }
 
 /* ==========================================================================
@@ -815,10 +816,31 @@ function packageHTML(r) {
     (r.payback ? '<p class="pkg-pay">Pays for itself in <b>' + esc(r.payback) + '</b></p>' : '') +
     '</div>';
 }
-function ctaHTML(path) {
+// The booking page (Calendly / Cal.com) with the visitor's result attached, so we see their numbers before the call.
+function bookingLink(r, lead) {
+  let url;
+  try { url = new URL(CONFIG.BOOKING_URL); } catch (e) { return CONFIG.BOOKING_URL; }
+  const p = r.path.toLowerCase();
+  const note = ["Loomvale calculator, Path " + r.path + ": " + PATHS[p].option]
+    .concat(resultLines(r), ["Answers: " + QUESTIONS[p].map(function (q) { return answerText(p, q); }).join(" | ")])
+    .join("\n").replace(/\u00a0/g, " ");
+  (CONFIG.BOOKING_NOTE_PARAMS || []).forEach(function (name) { url.searchParams.set(name, note); });
+  if (lead && lead.name) url.searchParams.set("name", lead.name);
+  if (lead && lead.email) url.searchParams.set("email", lead.email);
+  url.searchParams.set("utm_source", state.source);
+  url.searchParams.set("utm_medium", "calculator");
+  url.searchParams.set("utm_content", "path-" + r.path);
+  return url.toString();
+}
+function ctaHTML(r) {
+  // With a booking link the button goes straight to it. "Email me the full report" needs the endpoint to send
+  // anything, so in booking mode it only shows when FORM_ENDPOINT is set as well.
+  const booking = CONFIG.BOOKING_URL ? bookingLink(r) : "";
+  const reportLink = !booking || !!CONFIG.FORM_ENDPOINT;
   return '<div class="cta"><img class="kl1k" src="kl1k.png" alt="" width="56" height="56">' +
-    '<a class="btn-white" href="#contact" data-intent="book_call">' + esc(CTA_TEXT[path]) + '</a></div>' +
-    '<p class="center"><a class="email-link" href="#contact" data-intent="email_report">or email me the full report</a></p>' +
+    (booking ? '<a class="btn-white" href="' + esc(booking) + '" data-booking>'
+             : '<a class="btn-white" href="#contact" data-intent="book_call">') + esc(CTA_TEXT[r.path]) + '</a></div>' +
+    (reportLink ? '<p class="center"><a class="email-link" href="#contact" data-intent="email_report">or email me the full report</a></p>' : '') +
     '<p class="disclaimer">' + DISCLAIMER + '</p>';
 }
 function resultBodyHTML(r) {
@@ -890,7 +912,7 @@ function renderResult(p) {
   app.innerHTML =
     '<a class="back" href="#' + p + '">← Change answers</a>' +
     '<div class="stack">' + resultBodyHTML(r) + changesHTML(r.path) + packageHTML(r) + '</div>' +
-    ctaHTML(r.path);
+    ctaHTML(r);
   countUp();
   if (!state.sent[r.path]) {                       // once per path per session
     state.sent[r.path] = true;
@@ -991,7 +1013,7 @@ function renderSuccess(lead, r, mailto, sent) {
     '<p data-sent-note' + (sent ? '' : ' hidden') + '>' +
     (lead.wantsReport ? 'Your full report is on its way to ' : 'A confirmation is on its way to ') + esc(lead.email) + '.</p>' +
     '<p>Quicker? Message us on Telegram: <a href="' + esc(CONFIG.TELEGRAM_URL) + '">' + esc(CONFIG.TELEGRAM_LABEL) + '</a></p>' +
-    (CONFIG.BOOKING_URL ? '<a class="btn" href="' + esc(CONFIG.BOOKING_URL) + '" target="_blank" rel="noopener">Pick a time now</a>' : '') +
+    (CONFIG.BOOKING_URL ? '<a class="btn" href="' + esc(bookingLink(r, lead)) + '" target="_blank" rel="noopener">Pick a time now</a>' : '') +
     '</div>';
   window.scrollTo(0, 0);
   focusHeading();
