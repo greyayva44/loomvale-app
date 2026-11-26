@@ -189,6 +189,34 @@ legend + *{clear:both}
 .mail-step b{font-weight:600}
 .mail-step .btn{margin-top:14px}
 
+/* ---------- Home (black landing screen before the calculator) ---------- */
+html.is-dark{background:#000}
+.is-dark .page{background:#000}
+.is-dark .main{padding-bottom:64px}
+.home{color:var(--foot)}
+.home a:focus-visible{outline-color:var(--foot)}
+.home-top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:8px 0 48px}
+.home-logo{display:block;width:auto;height:22px;filter:invert(1)}
+.home-title{margin:0 0 14px;font-size:clamp(26px,7.7vw,30px);line-height:1.14;color:var(--foot)}
+.nowrap{white-space:nowrap}
+.home-lead{margin:0 0 28px;color:rgba(249,254,255,.72)}
+.home-actions{display:grid;gap:10px;margin:0 0 12px}
+.btn-outline{display:flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:8px 14px;border:1.5px solid rgba(249,254,255,.4);border-radius:14px;color:var(--foot);font-weight:600;font-size:16px;line-height:1.2;text-align:center;text-decoration:none}
+.btn-outline svg{flex:none;width:20px;height:20px}
+@media (hover:hover){.btn-outline:hover{border-color:var(--foot)}.home .btn-white:hover{background:#e9eded}}
+.home-quiz{padding:20px;border:0;border-radius:16px;color:var(--ink)}
+.home-quiz .kicker{margin:0 0 8px}
+.home-quiz .h2{margin:0 0 8px}
+.home-quiz-text{color:var(--text2)}
+.home-quiz .btn{margin-top:18px}
+.home-quiz a:focus-visible{outline-color:var(--ink)}
+.home-what{margin:40px 0 0}
+.home-what-title{margin:0 0 14px;font-size:18px;line-height:1.25;color:var(--foot)}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.tags li{display:inline-flex;align-items:center;min-height:36px;padding:0 14px;border:1.5px solid rgba(249,254,255,.28);border-radius:999px;font-weight:500;font-size:14px;line-height:1.2;color:var(--foot)}
+.home-site{display:inline-flex;align-items:center;min-height:44px;margin:12px 0 0;font-weight:500;font-size:15px;color:var(--foot);text-decoration:underline;text-underline-offset:3px}
+.back + .h1{margin-top:8px}
+
 /* ---------- Footer ---------- */
 .site-footer{min-height:180px;padding:28px 16px 22px;color:var(--foot)}
 .footer-in{max-width:408px;margin:0 auto}
@@ -318,6 +346,8 @@ const CONFIG = {
   TELEGRAM_URL: "https://t.me/loomvale_manager",
   TELEGRAM_LABEL: "t.me/loomvale_manager",
   PRIVACY_URL: "https://www.loomvale.xyz/privacy",
+  LINKEDIN_URL: "https://www.linkedin.com/company/loomvale/",   // "Follow on LinkedIn" on the first screen
+  WEBSITE_URL: "https://loomvale.design",
   COUNT_UP_MS: 600,                // result numbers count up for this long
   RETRY_DELAY_MS: 3000,            // wait before the one retry on a network error
   STORAGE_KEY: "loomvale-calculator"
@@ -663,8 +693,37 @@ function buildMailto(lead, r) {
 /* ==========================================================================
    Screens
    ========================================================================== */
+const HOME = {
+  title: 'Creating <span class="nowrap">AI-powered,</span> autonomous design workflows for your product.',   // HTML: keeps "AI-powered," on one line
+  lead: "Product design, brand identity and AI integration for fast-growing tech companies, delivered at startup speed.",
+  services: ["Design systems", "AI workflows", "AI-Design agents", "Gen-UI", "AI-Motion Pipelines", "Brand identity"]
+};
+const LINKEDIN_ICON = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>';
+function renderHome() {
+  app.innerHTML =
+    '<div class="home">' +
+    '<div class="home-top"><img class="home-logo" src="loomvale-logo.png" alt="Loomvale" width="166" height="22">' +
+    '<img class="kl1k" src="kl1k.png" alt="" width="44" height="44"></div>' +
+    '<h1 class="h1 home-title" tabindex="-1" data-focus>' + HOME.title + '</h1>' +
+    '<p class="home-lead">' + esc(HOME.lead) + '</p>' +
+    '<div class="home-actions">' +
+    '<a class="btn-outline" href="' + esc(CONFIG.LINKEDIN_URL) + '" target="_blank" rel="noopener">' + LINKEDIN_ICON + 'Follow on LinkedIn</a>' +
+    (CONFIG.BOOKING_URL ? '<a class="btn-white" href="' + esc(bookingLink(null)) + '">Book a call</a>' : '') +
+    '</div>' +
+    '<section class="card home-quiz">' +
+    '<p class="kicker">60-second calculator</p>' +
+    '<h2 class="h2">What is design costing you?</h2>' +
+    '<p class="home-quiz-text">In &lt;60 seconds you will see how many hours and euros an AI design agent would save your team.</p>' +
+    '<a class="btn" href="#start">Take the quiz →</a>' +
+    '</section>' +
+    '<div class="home-what"><h2 class="card-title home-what-title">What we do</h2>' +
+    '<ul class="tags">' + HOME.services.map(function (t) { return '<li>' + esc(t) + '</li>'; }).join("") + '</ul>' +
+    '<a class="home-site" href="' + esc(CONFIG.WEBSITE_URL) + '" target="_blank" rel="noopener">' + esc(CONFIG.WEBSITE_URL.replace(/^https?:\/\//, "")) + ' →</a></div>' +
+    '</div>';
+}
 function renderStart() {
   app.innerHTML =
+    '<a class="back" href="#home">← Back</a>' +
     '<h1 class="h1" tabindex="-1" data-focus>What is design costing you?</h1>' +
     '<p class="lead">In &lt;60 seconds you will see how many hours and euros an AI design agent would save your team.</p>' +
     '<p class="label" id="where-label">Where are you right now?</p>' +
@@ -820,16 +879,18 @@ function packageHTML(r) {
 function bookingLink(r, lead) {
   let url;
   try { url = new URL(CONFIG.BOOKING_URL); } catch (e) { return CONFIG.BOOKING_URL; }
-  const p = r.path.toLowerCase();
-  const note = ["Loomvale calculator, Path " + r.path + ": " + PATHS[p].option]
-    .concat(resultLines(r), ["Answers: " + QUESTIONS[p].map(function (q) { return answerText(p, q); }).join(" | ")])
-    .join("\n").replace(/\u00a0/g, " ");
-  (CONFIG.BOOKING_NOTE_PARAMS || []).forEach(function (name) { url.searchParams.set(name, note); });
+  if (r) {                                       // r is null when booking from the home screen, before any result
+    const p = r.path.toLowerCase();
+    const note = ["Loomvale calculator, Path " + r.path + ": " + PATHS[p].option]
+      .concat(resultLines(r), ["Answers: " + QUESTIONS[p].map(function (q) { return answerText(p, q); }).join(" | ")])
+      .join("\n").replace(/\u00a0/g, " ");
+    (CONFIG.BOOKING_NOTE_PARAMS || []).forEach(function (name) { url.searchParams.set(name, note); });
+  }
   if (lead && lead.name) url.searchParams.set("name", lead.name);
   if (lead && lead.email) url.searchParams.set("email", lead.email);
   url.searchParams.set("utm_source", state.source);
   url.searchParams.set("utm_medium", "calculator");
-  url.searchParams.set("utm_content", "path-" + r.path);
+  url.searchParams.set("utm_content", r ? "path-" + r.path : "home");
   return url.toString();
 }
 function ctaHTML(r) {
@@ -1020,12 +1081,17 @@ function renderSuccess(lead, r, mailto, sent) {
 }
 
 /* ==========================================================================
-   Routing: #start, #a, #a-result, #b, #b-result, #c, #c-result, #contact
+   Routing: #home (first screen), #start, #a, #a-result, #b, #b-result, #c, #c-result, #contact
    ========================================================================== */
 function focusHeading() {
   const h = app.querySelector("[data-focus]");
   if (!h) return;
   try { h.focus({ preventScroll: true }); } catch (e) { h.focus(); }
+}
+function setDark(on) {                           // the home screen is black; every calculator screen keeps the gradient
+  document.documentElement.classList.toggle("is-dark", on);
+  const theme = document.querySelector('meta[name="theme-color"]');
+  if (theme) theme.setAttribute("content", on ? "#000000" : "#ffffff");
 }
 function route(isFirstLoad) {
   const name = window.location.hash.replace(/^#/, "");
@@ -1041,10 +1107,13 @@ function route(isFirstLoad) {
     // Booking mode: the result button opens the booking page directly, so there is no form and no thank-you screen here.
     if (CONFIG.BOOKING_URL && !CONFIG.FORM_ENDPOINT) { window.location.replace("#" + state.result.path.toLowerCase() + "-result"); return; }
     renderContact();
-  } else {
-    if (name && name !== "start") { window.location.replace("#start"); return; }
+  } else if (name === "start") {
     renderStart();
+  } else {
+    if (name && name !== "home") { window.location.replace("#home"); return; }
+    renderHome();
   }
+  setDark(!name || name === "home");
   window.scrollTo(0, 0);
   if (isFirstLoad !== true) focusHeading();
 }
