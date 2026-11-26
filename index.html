@@ -1038,6 +1038,8 @@ function route(isFirstLoad) {
     renderResult(resultMatch[1]);
   } else if (name === "contact") {
     if (!state.result || !isComplete(state.result.path.toLowerCase())) { window.location.replace("#start"); return; }
+    // Booking mode: the result button opens the booking page directly, so there is no form and no thank-you screen here.
+    if (CONFIG.BOOKING_URL && !CONFIG.FORM_ENDPOINT) { window.location.replace("#" + state.result.path.toLowerCase() + "-result"); return; }
     renderContact();
   } else {
     if (name && name !== "start") { window.location.replace("#start"); return; }
