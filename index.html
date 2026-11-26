@@ -184,6 +184,10 @@ legend + *{clear:both}
 .success .kl1k{margin:0 0 20px;border-radius:12px}
 .success .h2{margin-bottom:12px}
 .success p{margin:0 0 10px;color:var(--text2)}
+.mail-step{margin:0 0 16px}
+.mail-step p{margin:0;color:var(--ink)}
+.mail-step b{font-weight:600}
+.mail-step .btn{margin-top:14px}
 
 /* ---------- Footer ---------- */
 .site-footer{min-height:180px;padding:28px 16px 22px;color:var(--foot)}
@@ -242,7 +246,7 @@ const CONFIG = {
   C_FIX_SAVING: 0.75,          // re-prompting / visual fix time saved
   C_PASS_SAVING: 0.67,         // consistency-pass time saved
   PRICES: { agent: 1900, middle: 3900, full: 7900 },
-  FORM_ENDPOINT: "",           // Google Apps Script web-app URL (ends in /exec). Paste it between the quotes.
+  FORM_ENDPOINT: "",           // Google Apps Script web-app URL (ends in /exec). Paste it between the quotes. Until then requests can only leave through the visitor's own email app.
   BOOKING_URL: "",             // optional Cal.com / Calendly link
   SOURCE_DEFAULT: "web",
 
@@ -945,7 +949,6 @@ function renderContact() {
     '<p class="direct-line">Telegram: <a href="' + esc(CONFIG.TELEGRAM_URL) + '">' + esc(CONFIG.TELEGRAM_LABEL) + '</a></p>' +
     '<p class="direct-line">Email: <a href="mailto:' + esc(CONFIG.CONTACT_EMAIL) + '">' + esc(CONFIG.CONTACT_EMAIL) + '</a></p></div>';
 }
-function openMail(url) { try { window.location.href = url; } catch (e) {} }
 function onSubmit(form) {
   const inputs = [form.elements.name, form.elements.email];
   let firstInvalid = null;
@@ -960,30 +963,33 @@ function onSubmit(form) {
   lead.wantsReport = form.elements.report.checked;
   lead.intent = state.contactIntent;
 
-  const mailto = buildMailto(lead, r);
-  const useMail = !CONFIG.FORM_ENDPOINT || window.navigator.onLine === false;
-  renderSuccess(lead, r, mailto, useMail);
-  if (useMail) {
-    openMail(mailto);                              // no endpoint (or offline): hand the lead to the visitor's email app
-  } else {
-    send(lead, function () {                       // both tries failed: fall back to email
-      const note = app.querySelector("[data-mail-fallback]");
-      if (note) note.hidden = false;
-      openMail(mailto);
-    });
-  }
+  // The request goes to the endpoint in the background. The visitor's email app is never opened
+  // automatically: only when there is no endpoint, no connection, or both tries fail does the
+  // success screen offer a "send by email" button as a last resort.
+  const canSend = !!CONFIG.FORM_ENDPOINT && window.navigator.onLine !== false;
+  renderSuccess(lead, r, buildMailto(lead, r), canSend);
+  if (canSend) send(lead, showMailStep);
 }
-function renderSuccess(lead, r, mailto, mailShown) {
+function showMailStep() {
+  const sentNote = app.querySelector("[data-sent-note]");
+  const step = app.querySelector("[data-mail-step]");
+  if (sentNote) sentNote.hidden = true;
+  if (step) step.hidden = false;
+  live.textContent = "One more step. We couldn’t send your request automatically. Use the button to send it by email.";
+}
+function renderSuccess(lead, r, mailto, sent) {
   const firstName = lead.name.split(/\s+/)[0];
   app.innerHTML =
     '<a class="back" href="#' + r.path.toLowerCase() + '-result">← Back to my result</a>' +
     '<div class="success">' +
     '<img class="kl1k" src="kl1k.png" alt="" width="64" height="64">' +
     '<h2 class="h2" tabindex="-1" data-focus>Thanks, ' + esc(firstName) + '!</h2>' +
+    '<div class="card mail-step" data-mail-step' + (sent ? ' hidden' : '') + '>' +
+    '<p><b>One more step.</b> We couldn’t send your request automatically. Tap the button and send the email we prepared for you.</p>' +
+    '<a class="btn" href="' + esc(mailto) + '">Send my request by email</a></div>' +
     '<p>We’ll get back to you within 24 hours to pick a time.</p>' +
-    (lead.wantsReport ? '<p>Your full report is on its way to ' + esc(lead.email) + '.</p>' : '') +
-    '<p data-mail-fallback' + (mailShown ? '' : ' hidden') + '>We’ve put your details into an email for you. If your email app didn’t open, ' +
-    '<a href="' + esc(mailto) + '">tap here to send it</a>.</p>' +
+    '<p data-sent-note' + (sent ? '' : ' hidden') + '>' +
+    (lead.wantsReport ? 'Your full report is on its way to ' : 'A confirmation is on its way to ') + esc(lead.email) + '.</p>' +
     '<p>Quicker? Message us on Telegram: <a href="' + esc(CONFIG.TELEGRAM_URL) + '">' + esc(CONFIG.TELEGRAM_LABEL) + '</a></p>' +
     (CONFIG.BOOKING_URL ? '<a class="btn" href="' + esc(CONFIG.BOOKING_URL) + '" target="_blank" rel="noopener">Pick a time now</a>' : '') +
     '</div>';
